@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +27,7 @@
                     <h3 class="pb-2 mb-1 font-italic">
                         Contact Us
                     </h3>
-                    <form action="#" method="post" id="userSettings" enctype="multipart/form-data" class="border p-2">
+                    <form action="./utils/addUserToDB.php" method="post" id="userSettings" enctype="multipart/form-data" class="border p-2">
                         <div class="form-group mb-2">
                             <label for="name"> Name:</label>
                             <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" minlength="3" maxlength="50" placeholder="John Doe">
@@ -49,15 +53,15 @@
                         </div>
                         <div class="form-group mb-2">
                             <div class="form-check form-check-inline ml-5">
-                                <input class="form-check-input" type="checkbox" id="cat" value="cat">
+                                <input class="form-check-input" type="checkbox" name="cat" id="cat" value="cat">
                                 <label class="form-check-label" for="cat">Cat</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="dog" value="dog">
+                                <input class="form-check-input" type="checkbox" name="dog" id="dog" value="dog">
                                 <label class="form-check-label" for="dog">Dog</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="another" value="another">
+                                <input class="form-check-input" type="checkbox" name="another" id="another" value="another">
                                 <label class="form-check-label" for="another">Another</label>
                             </div>
                             <small id="pet" class="form-text text-muted">*Do you have a pet?</small>
@@ -77,6 +81,15 @@
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" aria-describedby="confirmPasswordHelp" minlength="6" maxlength="32" placeholder="123456" required>
                             <small id="confirmPasswordHelp" class="form-text text-muted">*Confirm the password</small>
                         </div>
+                        <?php
+                        if ($_SESSION['checkPassMessage']) {
+                            $toastMessage = $_SESSION['checkPassMessage'];
+                            $alertClass  = $_SESSION['alertClass'];
+
+                            require './components/Alert.php';
+                        }
+                        unset($_SESSION['checkPassMessage'])
+                        ?>
                         <div class="form-group mb-2">
                             <div class="input-group mb-1">
                                 <div class="input-group-prepend">
@@ -93,17 +106,17 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="aboutMe" class="form-label">About me:</label>
-                            <textarea class="form-control" id="aboutMe" rows="2" placeholder="We all love to be heard. Tell us something about yourself."></textarea>
+                            <textarea class="form-control" id="aboutMe" name="aboutMe" rows="2" placeholder="We all love to be heard. Tell us something about yourself."></textarea>
                             <small id="aboutMe" class="form-text text-muted">*Enter text</small>
                         </div>
                         <div class="form-group mb-2">
                             <label for="avatar" class="form-label">Upload your avatar:</label>
-                            <input class="form-control" type="file" id="avatar">
+                            <input class="form-control" name="avatar" type="file" id="avatar">
                             <small id="avatar" class="form-text text-muted">*Upload a picture or photo</small>
                         </div>
                         <div class="container text-end">
                             <input type="reset" class="btn btn-secondary mr-2">
-                            <button type="submit" disabled form="userSettings" class="btn btn-primary">Submit</button>
+                            <button type="submit" form="userSettings" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -113,8 +126,10 @@
         <?php require './components/Footer.php'; ?>
 
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

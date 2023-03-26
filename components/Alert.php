@@ -1,4 +1,6 @@
-<div class="alert <?php echo $alertClass ?> fade show text-center" role="alert">
+<div class="alert alert-dismissible fade show <?php echo $alertClass ?> " role="alert">
     <?php echo $toastMessage ?>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>  
