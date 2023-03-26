@@ -17,7 +17,7 @@ session_start();
 
 <body class="h-100">
     <?php
-    $link = './table.php';
+    $link = './utils/getUsers.php';
     $linkName = 'To table';
     require './components/Header.php';
     ?> <div class="container-fluid d-flex flex-column h-100">
