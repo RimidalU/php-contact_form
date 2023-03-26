@@ -69,9 +69,9 @@
         $status = "The message was not sent. Reason for the error: {$mail->ErrorInfo}";
     }
 
-    echo '<pre>';
-    echo json_encode(["result" => $result, "status" => $status]);
-    echo '</pre>';
+    // echo '<pre>';
+    // echo json_encode(["result" => $result, "status" => $status]);
+    // echo '</pre>';
 
 
     $_SESSION['checkPassMessage'] = 'Form data submitted successfully! <br/> You can go to the table page or enter new data';
