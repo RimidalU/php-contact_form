@@ -40,14 +40,14 @@ session_start();
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Avatar</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Country</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Cat</th>
                                 <th scope="col">Dog</th>
-                                <th scope="col">Another Pet</th>
-                                <th scope="col">Avatar link</th>
+                                <th scope="col">OtherPet</th>
                                 <th scope="col">AboutMe</th>
                             </tr>
                         </thead>
@@ -58,6 +58,9 @@ session_start();
                             ?>
                                 <tr>
                                     <th scope="row"> <?php echo $user['id']; ?></th>
+                                    <td>
+                                        <img style="max-width: 2rem" src="<?php echo $user['avatar_link']; ?>" onerror="this.src='./img/unknownUser.svg'" alt="<?php echo $user['name']; ?>" />
+                                    </td>
                                     <td><?php echo $user['name']; ?></td>
                                     <td><?php echo $user['gender']; ?></td>
                                     <td><?php echo $user['country']; ?></td>
@@ -65,8 +68,7 @@ session_start();
                                     <td><?php echo $user['isCat']; ?></td>
                                     <td><?php echo $user['isDog']; ?></td>
                                     <td><?php echo $user['isAnother']; ?></td>
-                                    <td><?php echo $user['avatar']; ?></td>
-                                    <td><?php echo $user['aboutMe']; ?></td>
+                                    <td><?php echo $user['about']; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
