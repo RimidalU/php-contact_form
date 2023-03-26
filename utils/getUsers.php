@@ -1,30 +1,29 @@
 <?php
 
+session_start();
+
 include("./connectToDb.php");
 
 $sql = "SELECT * FROM users";
 
 $usersSql = mysqli_query($mysql, $sql);
 
-while ($row =mysqli_fetch_array($usersSql, MYSQLI_ASSOC)) {
+mysqli_close($mysql);
 
-$users[] = $row;
+while ($row = mysqli_fetch_array($usersSql, MYSQLI_ASSOC)) {
 
+    $users[] = $row;
 };
 
-    echo '<pre>';
-    print_r($users);
-    echo '</pre>';
-
 if (!$users) {
+    $_SESSION['getUsersMessage'] = 'Data not received.';
+    $_SESSION['alertClass'] = 'alert-danger';
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysql);
 };
 
 if ($users) {
+    $_SESSION['users'] = $users;
     echo "Request successful.";
 };
 
-mysqli_close($mysql);
-
-
-    // header('Location: ./table.php');
+header('Location: ../table.php');
