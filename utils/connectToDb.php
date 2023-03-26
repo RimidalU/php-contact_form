@@ -4,8 +4,8 @@ $env = parse_ini_file('../.env');
 $hostname = $env["DB_HOST_NAME"];
 $username = $env["DB_USER_NAME"];
 $password = $env["DB_PASSWORD"];
-// $database = $env["DB_NAME"];
-$database = null;
+$database = $env["DB_NAME"];
+// $database = null;
 
 $mysql = mysqli_connect($hostname,  $username,  $password,  $database);
 
