@@ -24,12 +24,14 @@ if ($password != $confirmPassword) {
     $_SESSION['checkPassMessage'] = 'Password mismatch. Try again.';
     $_SESSION['alertClass'] = 'alert-danger';
     header('Location: /');
+    exit();
 };
 
 if ($_FILES['avatar']['name'] && !$isLoadFile) {
     $_SESSION['checkPassMessage'] = 'File not loaded.';
     $_SESSION['alertClass'] = 'alert-danger';
     header('Location: /');
+    exit();
 };
 
 if ($password == $confirmPassword) {
@@ -44,6 +46,7 @@ if ($password == $confirmPassword) {
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysql);
     }
     mysqli_close($mysql);
+
     $_SESSION['currentUser'] = [
         'name' =>  $name,
         'email' =>  $email,

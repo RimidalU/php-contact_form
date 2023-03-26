@@ -20,7 +20,8 @@ session_start();
     $link = '/';
     $linkName = 'To form';
     require './components/Header.php';
-    ?> <div class="container-fluid d-flex flex-column h-100">
+    ?> 
+    <div class="container-fluid d-flex flex-column h-100">
         <main role="main" class="">
             <div class="row justify-content-center">
                 <div class=" bg-light p-2 my-4">
@@ -62,7 +63,7 @@ session_start();
                                 <tr>
                                     <th scope="row"> <?php echo $user['id']; ?></th>
                                     <td>
-                                        <img style="max-width: 2rem" src="<?php echo $user['avatar_link']; ?>" onerror="this.src='./img/unknownUser.svg'" alt="<?php echo $user['name']; ?>" />
+                                        <img style="max-width: 2rem" src="./<?php echo $user['avatar_link']; ?>" onerror="this.src='./img/unknownUser.svg'" alt="<?php echo $user['name']; ?>" />
                                     </td>
                                     <td><?php echo $user['name']; ?></td>
                                     <td><?php echo $user['gender']; ?></td>

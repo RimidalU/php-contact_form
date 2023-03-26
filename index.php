@@ -20,7 +20,8 @@ session_start();
     $link = './utils/getUsers.php';
     $linkName = 'To table';
     require './components/Header.php';
-    ?> <div class="container-fluid d-flex flex-column h-100">
+    ?>
+    <div class="container-fluid d-flex flex-column h-100">
         <main role="main" class="">
             <div class="row justify-content-center">
                 <div class=" bg-light p-4 my-4">
