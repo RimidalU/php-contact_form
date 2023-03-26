@@ -23,7 +23,7 @@ session_start();
     ?> <div class="container-fluid d-flex flex-column h-100">
         <main role="main" class="">
             <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-12 bg-light p-2 my-4">
+                <div class=" bg-light p-2 my-4">
                     <h3 class="pb-2 mb-1 font-italic">
                         Users Table
                     </h3>
@@ -53,7 +53,10 @@ session_start();
                         </thead>
                         <tbody>
                             <?php
-                            $users = $_SESSION['users'];
+                            $totoalPages = $_SESSION['paginationUsers']['totoalPages'];
+                            $limit = $_SESSION['paginationUsers']['limit'];
+
+                            $users = $_SESSION['paginationUsers']['users'];
                             foreach ($users as $user) :
                             ?>
                                 <tr>
@@ -73,6 +76,17 @@ session_start();
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+                    <nav aria-label="Page navigation example mt-5">
+                        <ul class="pagination justify-content-center">
+                            <?php for ($i = 1; $i <= $totoalPages; $i++) : ?>
+                                <li class="page-item <?php if ($page == $i) {
+                                                            echo 'active';
+                                                        } ?>">
+                                    <a class="page-link" href="./utils/getUsers.php?page=<?= $i; ?>"> <?= $i; ?> </a>
+                                </li>
+                            <?php endfor; ?>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </main>
@@ -83,7 +97,6 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-
 </body>
 
 </html>
