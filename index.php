@@ -37,13 +37,13 @@ session_start();
                             <label for="gender"> Gender:</label>
                             <div class="row ml-5">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="M" checked>
                                     <label class="form-check-label" for="male">
                                         Male
                                     </label>
                                 </div>
                                 <div class="form-check ml-2">
-                                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                    <input class="form-check-input" type="radio" name="gender" id="female" value="F">
                                     <label class="form-check-label" for="female">
                                         Female
                                     </label>
@@ -53,15 +53,15 @@ session_start();
                         </div>
                         <div class="form-group mb-2">
                             <div class="form-check form-check-inline ml-5">
-                                <input class="form-check-input" type="checkbox" name="cat" id="cat" value="cat">
+                                <input class="form-check-input" type="checkbox" name="cat" id="cat" value="Y">
                                 <label class="form-check-label" for="cat">Cat</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="dog" id="dog" value="dog">
+                                <input class="form-check-input" type="checkbox" name="dog" id="dog" value="Y">
                                 <label class="form-check-label" for="dog">Dog</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="another" id="another" value="another">
+                                <input class="form-check-input" type="checkbox" name="another" id="another" value="Y">
                                 <label class="form-check-label" for="another">Another</label>
                             </div>
                             <small id="pet" class="form-text text-muted">*Do you have a pet?</small>
