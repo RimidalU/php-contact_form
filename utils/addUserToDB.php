@@ -35,8 +35,13 @@ if ($pass == $confirmPass) {
     }
     mysqli_close($mysql);
 
-    $_SESSION['checkPassMessage'] = 'Form data submitted successfully! <br/> You can go to the table page or enter new data';
-    $_SESSION['alertClass'] = 'alert-success';
+    $_SESSION['currentUser'] = [
+        'name' =>  $name,
+        'email' =>  $email,
+        'country' =>  $country,
+        'aboutMe' =>  $aboutMe,
+    ];
 
-    header('Location: /');
+    header('Location: ./sendEmail.php');
+
 }
