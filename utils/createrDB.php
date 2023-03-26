@@ -4,12 +4,10 @@ include("./connectToDb.php");
 
 $sql = "CREATE DATABASE phpContactForm CHARACTER SET utf8 COLLATE utf8_general_ci";
 
-$database = null;
-
-if (mysqli_query($mysql, $sql)) {
+if (mysqli_query($link, $sql)) {
     echo "Database created successfully";
 } else {
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysql);
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 
-mysqli_close($mysql);
+mysqli_close($link);    
