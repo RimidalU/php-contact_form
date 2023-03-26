@@ -71,6 +71,11 @@
                             <small id="passHelp" class="form-text text-muted">*Enter Password (6 to 32 characters)</small>
                         </div>
                         <div class="form-group mb-2">
+                            <label for="inputConfirmPass">Confirm password:</label>
+                            <input type="password" class="form-control" id="inputConfirmPass" name="inputConfirmPass" aria-describedby="confirmPassHelp" minlength="6" maxlength="32" placeholder="12345" required>
+                            <small id="confirmPassHelp" class="form-text text-muted">*Confirm the password</small>
+                        </div>
+                        <div class="form-group mb-2">
                             <div class="input-group mb-1">
                                 <div class="input-group-prepend">
                                     <label class="input-group-text" for="inputCountry" aria-describedby="countryHelp">Country</label>
