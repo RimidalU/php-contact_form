@@ -19,23 +19,24 @@ $uploadsFolder = 'uploads/';
 $pathToAvatar = $uploadsFolder . time() . $_FILES['avatar']['name'];
 $isLoadFile = move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $pathToAvatar);
 
+
 if ($password != $confirmPassword) {
     $_SESSION['checkPassMessage'] = 'Password mismatch. Try again.';
     $_SESSION['alertClass'] = 'alert-danger';
     header('Location: /');
 };
 
-if ($isLoadFile != 1) {
+if ($_FILES['avatar']['name'] && !$isLoadFile) {
     $_SESSION['checkPassMessage'] = 'File not loaded.';
     $_SESSION['alertClass'] = 'alert-danger';
     header('Location: /');
 };
 
-if ($pass == $confirmPass) {
-    $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
+if ($password == $confirmPassword) {
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (name, gender, isCat, isDog, isAnother, email, password, country, about, avatar_link)
-    VALUES('$name', '$gender', '$isCat', '$isDog', '$isAnother', '$email', '$password', '$country', '$aboutMe', '$pathToAvatar')";
+    VALUES('$name', '$gender', '$isCat', '$isDog', '$isAnother', '$email', '$hashed_password', '$country', '$aboutMe', '$pathToAvatar')";
 
     if (mysqli_query($mysql, $sql)) {
         echo "User added successfully.";
