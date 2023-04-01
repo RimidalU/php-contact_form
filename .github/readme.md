@@ -55,7 +55,7 @@ Project is: *in progress*
 ## Room for Improvement
 
 To do:
-- [ ] fix layout,
+- [X] fix layout,
 - [ ] add tutorial,
 
 Improvement:
